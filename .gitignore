@@ -1,0 +1,17 @@
+# Dependencias
+/node_modules
+
+# Archivos de entorno sensibles
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# Archivos generados automáticamente por el Build (Frontend/Vite)
+# NOTA: Vercel construirá esta carpeta, por lo que no la subimos.
+/dist
+/build 
+
+# Archivos de log y temporales
+npm-debug.log*
+yarn-debug.log*
