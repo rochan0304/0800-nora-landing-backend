@@ -5,8 +5,10 @@ const cors = require('cors');
 const tiendaRoutes = require('./routes/tienda.route');
 const clienteRoutes = require('./routes/cliente.route');
 
+const allowedOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
+
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://myxoid-bridleless-lulu.ngrok-free.dev'],
+    origin: allowedOrigin,
     methods: 'GET,HEAD,PUT,POST,DELETE',
     credentials: true,
     optionSuccessStatus: 204
