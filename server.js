@@ -1,6 +1,10 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const app = require('./app');
 const db = require('./models');
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 
 const startServer = async () => {
     try {
