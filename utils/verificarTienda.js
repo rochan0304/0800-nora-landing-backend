@@ -1,5 +1,7 @@
 const { body, oneOf } = require('express-validator');
 const { capitalize } = require('./capitalize');
+const db = require('../models');
+const Respuesta_tienda = db.Respuesta_tienda;
 
 exports.verificarTienda = [
     body('nombre')
@@ -14,7 +16,14 @@ exports.verificarTienda = [
 
     body('correo')
     .trim()
-    .isEmail().withMessage('Formato de correo inválido.'),
+    .isEmail().withMessage('Formato de correo inválido.')
+    .custom(async correo => {
+        const respuesta = await Respuesta_tienda.findOne({where: { correo }});
+
+        if (correo) {
+            return Promise.reject('Este correo ya está en uso.');
+        }
+    }),
 
     body('nombre_negocio')
     .trim()

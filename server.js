@@ -11,7 +11,7 @@ const startServer = async () => {
         await db.sequelize.authenticate();
         console.log('Conexion exitosa a la base de datos');
         app.listen(PORT, () => {
-            console.log('Servidor activo en el puerto' + PORT);
+            console.log('Servidor activo en el puerto: ' + PORT);
         });
     } catch (error) {
         console.error('Error con el servidor:', error.message);
