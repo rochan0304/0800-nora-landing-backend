@@ -20,9 +20,7 @@ exports.verificarCliente = [
     .custom(async correo => {
         const respuesta = await Respuesta_cliente.findOne({where: { correo }});
 
-        console.log('holaa' + respuesta);
-
-        if(respuesta) {
+        if (respuesta) {
             return Promise.reject('Este correo ya está en uso.');
         }
     }),

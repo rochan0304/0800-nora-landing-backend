@@ -20,7 +20,7 @@ exports.verificarTienda = [
     .custom(async correo => {
         const respuesta = await Respuesta_tienda.findOne({where: { correo }});
 
-        if (correo) {
+        if (respuesta) {
             return Promise.reject('Este correo ya está en uso.');
         }
     }),
